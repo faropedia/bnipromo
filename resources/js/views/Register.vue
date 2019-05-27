@@ -36,6 +36,28 @@
                             data-vv-name="last_name"
                             required
                         ></v-text-field>
+                        <v-layout wrap align-center>
+                            <v-flex xs12 sm6 d-flex>
+                                <v-select
+                                    v-model="gender"
+                                    v-validate="'required'"
+                                    :error-messages="errors.collect('gender')"
+                                    :items="items"
+                                    label="Jenis Kelamin"
+                                    data-vv-name="gender"
+                                ></v-select>
+                            </v-flex>
+                            <v-flex xs12 sm6 d-flex>
+                                <v-text-field
+                                    v-model="age"
+                                    v-validate="'required|numeric|max:2'"
+                                    :error-messages="errors.collect('age')"
+                                    label="Umur"
+                                    data-vv-name="age"
+                                    required
+                                ></v-text-field>
+                            </v-flex>
+                        </v-layout>
                     </v-card-text>
                 </v-card>
             </v-tab-item>
@@ -129,11 +151,17 @@
                 snackbar: false,
                 first_name: '',
                 last_name: '',
+                age: '',
+                gender: '',
+                items: [
+                    {text: 'Laki-laki', value: 'men'},
+                    {text: 'Perempuan', value: 'women'}
+                ],
                 email: '',
                 phone: '',
                 password: '',
                 password_confirmation: '',
-                error: ''
+                error: '',
             }
         },
         methods: {
@@ -142,7 +170,8 @@
                 switch (active) {
                     case 0: {
                         this.$validator.validateAll().then(_ => {
-                            if (!this.errors.has('first_name') && !this.errors.has('last_name')) {
+                            if (!this.errors.has('first_name') && !this.errors.has('last_name') &&
+                                !this.errors.has('age') && !this.errors.has('gender')) {
                                 this.$validator.reset()
                                 setTimeout(() => {
                                     this.next()
@@ -187,7 +216,9 @@
                         email: this.email,
                         phone: this.phone,
                         password: this.password,
-                        password_confirmation: this.password_confirmation
+                        password_confirmation: this.password_confirmation,
+                        age: this.age,
+                        gender: this.gender
                     },
                     success: () => {
                         this.loading = false

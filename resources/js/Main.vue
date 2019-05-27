@@ -14,7 +14,7 @@
             </v-toolbar-items>
         </v-toolbar>
         <v-content>
-            <v-container fluid>
+            <v-container fluid grid-list-xl>
                 <router-view></router-view>
             </v-container>
         </v-content>

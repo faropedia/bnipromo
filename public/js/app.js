@@ -3227,6 +3227,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   $_veeValidate: {
     validator: 'new'
@@ -3239,6 +3261,15 @@ __webpack_require__.r(__webpack_exports__);
       snackbar: false,
       first_name: '',
       last_name: '',
+      age: '',
+      gender: '',
+      items: [{
+        text: 'Laki-laki',
+        value: 'men'
+      }, {
+        text: 'Perempuan',
+        value: 'women'
+      }],
       email: '',
       phone: '',
       password: '',
@@ -3256,7 +3287,7 @@ __webpack_require__.r(__webpack_exports__);
         case 0:
           {
             this.$validator.validateAll().then(function (_) {
-              if (!_this.errors.has('first_name') && !_this.errors.has('last_name')) {
+              if (!_this.errors.has('first_name') && !_this.errors.has('last_name') && !_this.errors.has('age') && !_this.errors.has('gender')) {
                 _this.$validator.reset();
 
                 setTimeout(function () {
@@ -3309,7 +3340,9 @@ __webpack_require__.r(__webpack_exports__);
           email: this.email,
           phone: this.phone,
           password: this.password,
-          password_confirmation: this.password_confirmation
+          password_confirmation: this.password_confirmation,
+          age: this.age,
+          gender: this.gender
         },
         success: function success() {
           _this2.loading = false;
@@ -33345,7 +33378,14 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-content",
-        [_c("v-container", { attrs: { fluid: "" } }, [_c("router-view")], 1)],
+        [
+          _c(
+            "v-container",
+            { attrs: { fluid: "", "grid-list-xl": "" } },
+            [_c("router-view")],
+            1
+          )
+        ],
         1
       ),
       _vm._v(" "),
@@ -33681,7 +33721,78 @@ var render = function() {
                           },
                           expression: "last_name"
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "v-layout",
+                        { attrs: { wrap: "", "align-center": "" } },
+                        [
+                          _c(
+                            "v-flex",
+                            { attrs: { xs12: "", sm6: "", "d-flex": "" } },
+                            [
+                              _c("v-select", {
+                                directives: [
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: "'required'"
+                                  }
+                                ],
+                                attrs: {
+                                  "error-messages": _vm.errors.collect(
+                                    "gender"
+                                  ),
+                                  items: _vm.items,
+                                  label: "Jenis Kelamin",
+                                  "data-vv-name": "gender"
+                                },
+                                model: {
+                                  value: _vm.gender,
+                                  callback: function($$v) {
+                                    _vm.gender = $$v
+                                  },
+                                  expression: "gender"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-flex",
+                            { attrs: { xs12: "", sm6: "", "d-flex": "" } },
+                            [
+                              _c("v-text-field", {
+                                directives: [
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required|numeric|max:2",
+                                    expression: "'required|numeric|max:2'"
+                                  }
+                                ],
+                                attrs: {
+                                  "error-messages": _vm.errors.collect("age"),
+                                  label: "Umur",
+                                  "data-vv-name": "age",
+                                  required: ""
+                                },
+                                model: {
+                                  value: _vm.age,
+                                  callback: function($$v) {
+                                    _vm.age = $$v
+                                  },
+                                  expression: "age"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   )

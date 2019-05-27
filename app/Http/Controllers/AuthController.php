@@ -19,6 +19,8 @@ class AuthController extends Controller
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required|numeric',
+            'age' => 'required|numeric',
+            'gender' => 'required',
             'password'  => 'required|confirmed|min:6',
         ]);
         if ($v->fails())
@@ -33,6 +35,8 @@ class AuthController extends Controller
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->phone = $request->phone;
+        $user->age = $request->age;
+        $user->gender = $request->gender;
         $user->password = bcrypt($request->password);
         $user->save();
         return response()->json(['status' => 'success'], 200);
