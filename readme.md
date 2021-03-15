@@ -20,4 +20,4 @@
 
     `php artisan serve`
 
-6. Buka http://localhost:8000 di browser untuk mengakses aplikasi
+6. Buka http://127.0.0.1:8000 di browser untuk mengakses aplikasi
