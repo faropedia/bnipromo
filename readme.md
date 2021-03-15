@@ -5,9 +5,12 @@
 
 2. Pastikan MySQL sudah running di komputer Anda
 
-3. Buka cmd di folder root aplikasi, lalu ketik seperti dibawah ini untuk install package composer
-   `composer install`
-
+3. Buka cmd di folder root aplikasi, lalu ketik seperti dibawah ini untuk install package npm & composer
+    ```
+    composer install
+    npm install
+    npm run dev
+    ```
 4. Buka file `.env` untuk memastikan konfigurasi MYSQL (host, username, pass) sdh sesuai, lalu buat database dengan nama 'bnipromo'.
    Setelah itu di cmd ketik:
 
