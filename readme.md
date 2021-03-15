@@ -1,6 +1,6 @@
 # Cara Setup Aplikasi BNI Promo
 
-1. Pastikan versi PHP yg terinstall adalah PHP 7.2 keatas, cek dengan cara buka cmd lalu ketik:
+1. Pastikan versi PHP yg terinstall adalah PHP 7.2 (diatas ini akan error), cek dengan cara buka cmd lalu ketik:
    php -v
 
 2. Pastikan MySQL sudah running di komputer Anda
